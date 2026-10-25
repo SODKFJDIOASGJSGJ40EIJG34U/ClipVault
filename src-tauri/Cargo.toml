@@ -1,0 +1,33 @@
+[package]
+name = "clipvault"
+version = "0.1.0"
+description = "Локальный менеджер истории буфера обмена"
+authors = ["ClipVault contributors"]
+edition = "2021"
+
+[lib]
+name = "clipvault_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-autostart = "2"
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.32", features = ["bundled"] }
+arboard = { version = "3.4", default-features = false, features = ["image-data"] }
+clipboard-win = { version = "5.4", features = ["std"] }
+base64 = "0.22"
+sha2 = "0.10"
+image = { version = "0.25", default-features = false, features = ["png"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "2"
+dirs = "6"
+log = "0.4"
+env_logger = "0.11"
+windows-sys = { version = "0.59", features = ["Win32_Foundation", "Win32_UI_WindowsAndMessaging", "Win32_UI_Shell", "Win32_System_DataExchange", "Win32_System_Memory", "Win32_System_LibraryLoader", "Win32_System_Threading"] }
